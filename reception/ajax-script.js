@@ -31,10 +31,18 @@
         $('#Branch').html(result);
 
       }
-    }); 
-  }else{
+    });
 
-    $('#Branch').html('<option value=""> Branch </option>');  
+    $.ajax({
+      type:'POST',
+      url:'dataget.php',
+      data:{'ZoneCodeAMC':ZoneCode},
+      success:function(result){
+        $('#AMCVisit').html(result);
+
+      }
+    }); 
+
   }
 });
 

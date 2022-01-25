@@ -25,7 +25,7 @@ include 'session.php';
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<style type="text/css">
+  <style type="text/css">
   .table{
     font-size: 14px;
 
@@ -1081,7 +1081,23 @@ include 'session.php';
           </div>
         </div>
         <div class="col-lg-4" >
-          <br>
+
+          <div class="col-lg-12" style="margin: 12px; overflow: auto;">
+            <table class="scrolldown table table-hover table-bordered border-primary table-responsive" id="resizeMe"> 
+              <h5 style="margin: 2px; text-align: center;">AMC</h5>
+              <thead> 
+                <tr> 
+                  <th style="min-width: 150px;">Device</th>
+                  <th style="min-width: 150px;">Start Date</th>
+                  <th style="min-width: 150px;">End date</th>
+                  <th style="min-width: 150px;">Visits</th>        
+                </tr>                     
+              </thead>                 
+              <tbody id="AMCVisit"> 
+              </tbody>
+            </table>
+          </div>
+
           <h4 align="center" style="margin-bottom: 20px">Branch Details</h4>
           <div class="row lg-12" id="BranchData">
           </div>

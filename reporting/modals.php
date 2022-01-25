@@ -324,7 +324,6 @@
 </div>
 </div>
 
-
 <!-- Inventory Pending -->
 <div class="modal fade" id="InventoryPending" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">

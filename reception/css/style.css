@@ -134,7 +134,7 @@ thead tr th {
 table.scrolldown tbody {
 
   /* Set the height of table body */
-  height: 120px; 
+  height: 150px; 
 
   /* Set vertical scroll */
   overflow-y: auto;
