@@ -1090,7 +1090,8 @@ include 'session.php';
                   <th style="min-width: 150px;">Device</th>
                   <th style="min-width: 150px;">Start Date</th>
                   <th style="min-width: 150px;">End date</th>
-                  <th style="min-width: 150px;">Visits</th>        
+                  <th style="min-width: 150px;">Visits</th>  
+                  <th style="min-width: 150px;">Rates</th>       
                 </tr>                     
               </thead>                 
               <tbody id="AMCVisit"> 
