@@ -298,3 +298,21 @@
   }
 });
 });
+
+   $(document).on('click', '.material', function(){
+  //$('#dataModal').modal();
+  var OrderID = $(this).attr("id");
+  var ZoneCode=document.getElementById(OrderID).value;
+  newObj2={OrderID: OrderID, ZoneCode: ZoneCode};
+  const Data = JSON.stringify(newObj2);
+  console.log(Data);
+  $.ajax({
+   url:"/cyrus/reporting/materialRelease.php",
+   method:"POST",
+   data:{Data:Data},
+   success:function(data){
+    $('#MaterialsData').html(data);
+    $('#ReleasedMaterials').modal('show');
+  }
+});
+});

@@ -188,9 +188,9 @@ $EXEID=$_SESSION['userid'];
             <th >Assign Date</th>
             <th >Call Verified</th>             
             <th>Employee</th>
-            <th style="min-width: 500px;">Discription</th>  
+            <th style="min-width: 500px;">Discription</th> 
             <th style="min-width: 500px;">Executive Remark</th>
-                       
+                        
           </tr>                     
         </thead>                 
         <tbody id="Complaints" > 
@@ -230,45 +230,6 @@ $EXEID=$_SESSION['userid'];
           "paging":         false
         } );
       } );*/
-
-      var exampleModal = document.getElementById('editQty')
-      exampleModal.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button = event.relatedTarget
-  // Extract info from data-bs-* attributes
-  var recipient = button.getAttribute('data-bs-Qty')
-  var Est = button.getAttribute('data-bs-estid')
-  var Ap = button.getAttribute('data-bs-ap')
-  console.log(Est)
-  document.getElementById("es").value = Est;
-  document.getElementById("ap").value = Ap;
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-
-  // Update the modal's content.
-  var modalTitle = exampleModal.querySelector('.modal-title')
-  var modalBodyInput = exampleModal.querySelector('.modal-body input')
-  //modalTitle.textContent = 'New message to ' + recipient
-  modalBodyInput.value = recipient
-})
-
-
-
-      var exampleModal4 = document.getElementById('deleteItems')
-      exampleModal4.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button4 = event.relatedTarget
-  // Extract info from data-bs-* attributes
-  var Estid = button4.getAttribute('data-bs-esid')
-  var Appid = button4.getAttribute('data-bs-appid')
-  console.log(Estid)
-  console.log(Appid)
-  document.getElementById("delest").value = Estid;
-  document.getElementById("delap").value = Appid;
-
-})
-
 
 </script>
 </body>

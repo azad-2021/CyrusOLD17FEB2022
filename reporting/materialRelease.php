@@ -22,6 +22,7 @@
       $obj=json_decode($Data);
       $OrderID=$obj->OrderID;
       $ZoneCode=$obj->ZoneCode;
+      $ItemID ='';
       $query2="SELECT * FROM cyrusbackend.demandextended join cyrusbilling.rates on demandextended.ItemID=rates.ItemID where demandextended.OrderID=$OrderID and rates.Zone=$ZoneCode";
            //$query2="SELECT * FROM demandbase join orders on demandbase.OrderID=orders.OrderID join branchdetails on orders.BranchCode=branchdetails.BranchCode where StatusID=2 Order By demandbase.OrderID";
       $result2=mysqli_query($con2,$query2);

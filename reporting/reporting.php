@@ -72,6 +72,7 @@ if (($EXEID==12) or ($EXEID==32)) {
               <th scope="col">Name</th>
               <th scope="col">Contact Number</th>
               <th scope="col">Total Jobcards</th>
+              <th scope="col">Last Verified Date</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -97,10 +98,10 @@ if (($EXEID==12) or ($EXEID==32)) {
                   $EmployeeID=base64_encode($data1['EmployeeCode']);
                   if (($EXEID==12) or ($EXEID==32)) {
                     //$queryA= "SELECT * FROM approval WHERE EmployeeID=$ID and posted=1 and VisitDate>='$Date'";
-                    $queryA ="SELECT COUNT(`Card Number`) FROM `jobcardmain` Where EmployeeCode='$ID' and ServiceDone is null and VisitDate>='$Date'";
+                    $queryA ="SELECT COUNT(`Card Number`),min(VisitDate) as LastVerified  FROM `jobcardmain` Where EmployeeCode='$ID' and ServiceDone is null and VisitDate>='$Date'";
                     $Action='<a target="blank" href=jobcardentry.php?empid='.$EmployeeID.'>See Details</a>';
                   }else{
-                    $queryA= "SELECT COUNT(approvalID) FROM approval WHERE EmployeeID=$ID and posted=0";
+                    $queryA= "SELECT COUNT(approvalID), min(VisitDate) as LastVerified FROM approval WHERE EmployeeID=$ID and posted=0 order by min(VisitDate)";
                     $Action='<a target="blank" href=vexecutive.php?empid='.$EmployeeID.'>See Details</a>';
                   }
 
@@ -111,42 +112,48 @@ if (($EXEID==12) or ($EXEID==32)) {
                   if (($EXEID==12) or ($EXEID==32)) {
                     echo $toatalCards=$d['COUNT(`Card Number`)'];
                   }else{
-                   echo $toatalCards =$d['COUNT(approvalID)'];;
+                   echo $toatalCards =$d['COUNT(approvalID)'];
                  }
 
                  ?>
                </td>
-               
-               <td>
-                <?php echo $Action ?>
-              </td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>  
-      <br>
-    </div>
-  </div> 
-  <script src="assets/js/popper.js"></script>
-  <script type="text/javascript" src="//cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js
-  "></script>
-  <script src="search.js"></script>
-  <script type="text/javascript">
+               <td> <?php
+               if (!empty($d['LastVerified'])) {
+                 echo $d['LastVerified'];
+               }else{
+                echo 'N/A';
+              }
+              ?></td>
+            <td>
+              <?php echo $Action ?>
+            </td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>  
+    <br>
+  </div>
+</div> 
+<script src="assets/js/popper.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js
+"></script>
+<script src="search.js"></script>
+<script type="text/javascript">
 
-    $(document).ready(function() {
-     var table = $('#userTable2').DataTable( {
-      rowReorder: {
-        selector: 'td:nth-child(2)'
-      },
-      "lengthMenu": [[10, 50, 100, -1], [10, 25, 50, "All"]],
-      responsive: true
+  $(document).ready(function() {
+   var table = $('#userTable2').DataTable( {
+    rowReorder: {
+      selector: 'td:nth-child(2)'
+    },
+    "lengthMenu": [[10, 50, 100, -1], [10, 25, 50, "All"]],
+    responsive: true
 
-    } );
-   } );
+  } );
+ } );
 
- </script> 
+</script> 
 </body>
 </html>
 
