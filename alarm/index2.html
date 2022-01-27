@@ -1,0 +1,163 @@
+<DOCTYPE HTML>
+	<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cyrus Alarm</title>
+		<style>
+		html { 
+			font-family: Helvetica;
+			display: inline-block;
+			margin: 0px auto;
+			text-align: center;
+		} 
+		body {
+			margin-top: 50px;
+			background-color:powderblue;
+		}
+		h1 {
+			color: #444444;margin: 50px auto 30px;
+		}
+		h3 {
+			color: #444444;margin
+			bottom: 50px;
+		}
+		p {font-size: 18px;color: #888;
+			margin-bottom: 10px;
+		}
+		/*
+		.margin{
+			margin: 5px;
+			}*/
+			.button {
+				position: relative;
+				background-color: #04AA6D;
+				border: none;
+				font-size: 15px;
+				color: #FFFFFF;
+				padding: 5px;
+				width: 100px;
+				border-radius: 20px;
+				text-align: center;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 0.4s;
+				text-decoration: none;
+				overflow: hidden;
+				cursor: pointer;
+				margin-top: 20px;
+			}
+
+			.button:active:after {
+				padding: 0;
+				margin: 0;
+				opacity: 1;
+				transition: 0s
+			}
+			.my-select3 {
+				background-color: White;
+				border: 0 none;
+				border-radius: 20px;
+				padding: 8px 20px;
+				margin-top: 10px;
+				text-align: center;
+
+			}
+
+			fieldset{
+				background-color: #eeeeee;
+				border: 1 none;
+				border-radius: 20px;
+				padding: 20px 20px;
+				margin-top: 10px;
+				text-align: center;
+			}
+
+
+			* {
+				box-sizing: border-box;
+			}
+
+			input[type=text], select, textarea {
+				width: 100%;
+				padding: 12px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				resize: vertical;
+			}
+
+			label {
+				padding: 12px 12px 12px 0;
+				display: inline-block;
+			}
+
+			input[type=submit] {
+				background-color: #04AA6D;
+				color: white;
+				padding: 12px 20px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			input[type=submit]:hover {
+				background-color: #45a049;
+			}
+
+			.container {
+				border-radius: 5px;
+				background-color: #f2f2f2;
+				padding: 20px;
+			}
+
+			.col-25 {
+
+				width: 25%;
+				margin-top: 6px;
+			}
+
+			.col-75 {
+
+				width: 75%;
+				margin-top: 6px;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+			@media screen and (max-width: 600px) {
+				.col-25, .col-75, input[type=submit] {
+					width: 100%;
+					margin-top: 0;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<fieldset>
+				<h1>Welcome to Sirius Alarm</h1>
+				<form method='get' action='setting'>
+					<div class="row">
+						<div class="col-25">
+							<label>Day HOUR:</label>
+						</div>
+						<div class="col-75">
+							<input name='DayH' class="margin my-select3" length=2 type=number min='0' max = '23' required>
+						</div>
+					</div>
+					<label> Day MINUTE</label><input name='Day M' class="margin my-select3" length =2 type='number' min = '0' max ='59' required><br>
+					<label>Night HOUR </label><input name='NightH' class="margin my-select3" length=2 type='number' min='0' max = '23' required>
+					<label>Night MINUTE :</label><input name='NightM' class="margin my-select3" length=2 type='number' min='0' max='59' required><br>
+					<label>Current DateTime:</label><input name='CurrH' class="margin my-select3" type="datetime-local" required ><br>
+					<input class="margin button" type = "submit"><br>
+				</form>
+			</fieldset>
+		</div>
+	</body>
+	</html>
+
